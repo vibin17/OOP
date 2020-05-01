@@ -9,12 +9,12 @@ namespace L3
     public class Program
     {
         public delegate double MyDel(int[] a);
-        public static MyDel masAv = (x) =>
+        public static MyDel arrAv = (x) =>
         {
             double sum = 0;
             foreach (int numb in x)
                 sum += numb;
-            return sum / x.Length;
+            return x.Length > 0? sum / x.Length : 0;
         };
         public delegate double MyDel2(int x, int y);
         public static MyDel2 Sum = (x, y) => x + y;

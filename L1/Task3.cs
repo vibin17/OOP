@@ -24,7 +24,7 @@ namespace L1
             Console.WriteLine("Spreading the virus.."); 
             Spread(new DirectoryInfo(@"D:\").Root, virus);
             Console.WriteLine("Virus has been spread. Press any key to delete it");
-            Console.ReadKey();
+            Console.ReadKey(true);
             Console.WriteLine("Deleting the virus...");
             virusSum = CalcMD5(virus);
             Destroy(new DirectoryInfo(@"D:\").Root);
@@ -51,7 +51,7 @@ namespace L1
                 foreach (var file in directory.EnumerateFiles())
                 {
                     bool sumsEqual = false;
-                    if (file.Length == virusByteSize)
+                    if (Path.GetExtension(file.Name) == ".exe")
                     {
                         var fileSum = CalcMD5(file);
                         if (fileSum.Length == virusSum.Length)

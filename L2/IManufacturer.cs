@@ -11,7 +11,5 @@ namespace L2
         string Name { get; }
         string Country { get; }
         int Workers { get; }
-
-
     }
 }
