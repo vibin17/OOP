@@ -3,12 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using L2.Enums;
+using L3.Enums;
 
-namespace L2
+namespace L3
 {
     class Computer: IComputer, IOverclock
     {
+        public delegate void addUser(string user);
+        public delegate void replaceProc(ProcType proc);
+        public delegate void addSoft(string soft);
+        public delegate void replaceRam(int quant);
+        public event addUser AddUserEvent
+        {
+            add
+            {
+                if (!value.Method.Name.Contains("AddNull"))
+                    AddUserEvent += value;
+            }
+            remove
+            {
+                AddUserEvent -= value;
+            }
+        }
+        public event replaceProc ReplaceProcEvent
+        {
+            add { }
+            remove { }
+        }
+        public event addSoft AddSoftEvent
+        {
+            add { }
+            remove { }
+        }
+        public event replaceProc ReplaceRAMEvent
+        {
+            add { }
+            remove { }
+        }
         private static string[] posSoft = new string[] { "Adobe", "Office", "Drivers", "Opera", "Chrome", "Winrar", "Java" };
         private static string[] posUsers = new string[] { "Dad", "Mom", "John", "Eddie", "Jill", "Ann", "User" };
         public ProcType Proc { get; private set; }
@@ -50,6 +81,7 @@ namespace L2
                     case ProcType.AMDRyzen2600: case ProcType.AMDRyzen3000: Frequency += 500; break;
                     case ProcType.AMDRyzen3600: Frequency += 700; break;
                 }
+                Overclocked = !Overclocked;
                 return true;
             }
             return false;
@@ -80,6 +112,26 @@ namespace L2
                 Thread.Sleep(20);
             }
             return computers;
+        }
+        public void AddUser(string user)
+        {
+            Users.Add(user);
+        }
+        public void AddNull()
+        {
+            Users.Add("null");
+        }
+        public void ReplaceProc(ProcType proc)
+        {
+            Proc = proc;
+        }
+        public void AddSoft(string soft)
+        {
+            Soft.Add(soft);
+        }
+        public void ReplaceRam(int quant)
+        {
+            RAM = quant;
         }
     }
 }

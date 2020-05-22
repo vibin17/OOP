@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using L3.Enums;
 
 namespace L3
 {
@@ -19,34 +20,36 @@ namespace L3
         public delegate double MyDel2(int x, int y);
         public static MyDel2 Sum = (x, y) => x + y;
         public static MyDel2 Sub = (x, y) => x - y;
-        static void Main()
+        static void MathOp()
         {
-            while(true)
+            switch (Console.ReadLine())
             {
-                switch (Console.ReadLine())
-                {
-                    case "+":
-                        {
-                            int x = Convert.ToInt32(Console.ReadLine());
-                            int y = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine($"Sum - {Sum(x, y)}");
-                            break;
-                        }
-                    case "-":
-                        {
-                            int x = Convert.ToInt32(Console.ReadLine());
-                            int y = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine($"Sub - {Sub(x, y)}");
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine($"Wrong input");
-                            break;
-                        }
-                }
+                case "+":
+                    {
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Sum - {Sum(x, y)}");
+                        break;
+                    }
+                case "-":
+                    {
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Sub - {Sub(x, y)}");
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine($"Wrong input");
+                        break;
+                    }
             }
 
+        }
+        static void Main()
+        {
+            Computer computer = Computer.Generate();
+            computer.
         }
     }
 }
