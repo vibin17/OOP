@@ -28,14 +28,14 @@ namespace L3
                     {
                         int x = Convert.ToInt32(Console.ReadLine());
                         int y = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine($"Sum - {Sum(x, y)}");
+                        Console.WriteLine($"Sum = {Sum(x, y)}");
                         break;
                     }
                 case "-":
                     {
                         int x = Convert.ToInt32(Console.ReadLine());
                         int y = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine($"Sub - {Sub(x, y)}");
+                        Console.WriteLine($"Sub = {Sub(x, y)}");
                         break;
                     }
                 default:
@@ -44,12 +44,10 @@ namespace L3
                         break;
                     }
             }
-
         }
         static void Main()
         {
-            Computer computer = Computer.Generate();
-            computer.
+            MathOp();
         }
     }
 }

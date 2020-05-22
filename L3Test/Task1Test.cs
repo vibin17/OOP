@@ -10,7 +10,7 @@ using L3;
 namespace L3Test
 {
     [TestFixture]
-    public class TestClass1
+    public class Task1Test
     {
         [TestCase(new int[] { 1, 2, 3 }, 2)]
         [TestCase(new int[] { 3 }, 3)]
